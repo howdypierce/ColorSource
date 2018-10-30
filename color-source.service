@@ -1,0 +1,15 @@
+[Unit]
+Description=ColorSource
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/cole/color-source
+ExecStart=/home/cole/venv/bin/python /home/cole/color-source/color_source_rpi.py
+Restart=on-failure
+User=cole
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
