@@ -11,14 +11,13 @@
 import socket
 import sys
 
-SERVER_IP = 'color-source.local'
+SERVER_IP = '175.25.102.31'
 SERVER_PORT = 9099
 BUF_SIZE = 1024
 
 message = " ".join(sys.argv[1:])
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
-sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 32)
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.sendto(message.encode('utf-8'), (SERVER_IP, SERVER_PORT))
 
 data, server = sock.recvfrom(BUF_SIZE)
