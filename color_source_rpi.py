@@ -139,7 +139,7 @@ def main_loop() -> None:
 
         try:
             data, client_addr = sock.recvfrom(BUF_SIZE)
-            syslog("received message: {data} from {client_addr}")
+            syslog(f"received message: {data} from {client_addr}")
 
             if data == b'GET COLOR':
                 ret = "COLOR {} {} {}".format(*color)
